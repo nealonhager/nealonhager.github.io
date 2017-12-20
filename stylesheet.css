@@ -1,0 +1,93 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Hind', sans-serif;
+}
+
+#content {
+    margin: 0px 50px 0px 150px;
+    padding: 10px;
+}
+
+#nav {
+    position: absolute;
+    width: 150px;
+    background-color: white;
+    height: 100%;
+    font-weight: 500;
+    font-size: 150%;
+}
+
+#menu {
+    padding: 5% 5% 0% 5%;
+}
+
+#menu > div > img {
+    padding-bottom: 5%;
+}
+
+#menu a {
+    text-decoration: none;
+    color: black;
+}
+
+#menu a:hover {
+    border-bottom: 2px solid red;
+}
+
+#menu img {
+    width: 50%;
+}
+
+a:visited {
+    color: #222222;
+}
+
+.art {
+    display: grid;
+    grid-gap: 10px;
+    grid-row-gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    grid-template-rows: repeat(4, minmax(200px,1fr));
+    text-align: center;
+}
+
+.art a{
+    font-style: oblique;
+}
+
+.art > div > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.art > div {
+    height: 100%;
+    position: relative;
+    z-index: 2;
+    -webkit-transition-property: height,z-index, color, background; /* Safari */
+    -webkit-transition-duration: .5s; /* Safari */
+    color: black;
+    background: white;
+}
+
+.art > div > a {
+    color: black;
+    
+}
+
+.art > div:hover {
+    height: 102%;
+    position: relative;
+    z-index: 3;
+    -webkit-transition-property: height, color, background; /* Safari */
+    -webkit-transition-duration: .5s; /* Safari */
+    color: white;
+    background: black;
+}
+
+.art > div > a:hover {
+    color: black;
+    border-bottom: 1px solid red;
+}
