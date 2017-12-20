@@ -11,6 +11,15 @@ body {
 #content {
     margin: 0px 50px 0px 150px;
     padding: 10px;
+    font-size: 110%;
+}
+
+#content a{
+    color: black;
+}
+
+#content a:hover {
+    border-bottom: 1px solid var(--highlight-color);
 }
 
 #nav {
