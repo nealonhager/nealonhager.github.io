@@ -1,3 +1,7 @@
+:root {
+    --highlight-color: #ff00bf;
+}
+
 body {
     padding: 0px;
     margin: 0px;
@@ -32,7 +36,7 @@ body {
 }
 
 #menu a:hover {
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid var(--highlight-color);
 }
 
 #menu img {
@@ -43,13 +47,26 @@ a:visited {
     color: #222222;
 }
 
+a {
+    text-decoration: none;
+}
+
+.header {
+    font-size: 125%;
+}
+
 .art {
     display: grid;
     grid-gap: 10px;
     grid-row-gap: 30px;
     grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    grid-template-rows: repeat(4, minmax(200px,1fr));
+    grid-template-rows: repeat(1, minmax(200px,1fr));
     text-align: center;
+}
+
+.portfolio {
+    grid-template-rows: repeat(4, minmax(200px,1fr));
+    grid-row-gap: 35px;
 }
 
 .art a{
@@ -68,6 +85,8 @@ a:visited {
     z-index: 2;
     -webkit-transition-property: height,z-index, color, background; /* Safari */
     -webkit-transition-duration: .5s; /* Safari */
+    transition-property: height,z-index, color, background;
+    transition-duration: .5s;
     color: black;
     background: white;
 }
@@ -83,11 +102,17 @@ a:visited {
     z-index: 3;
     -webkit-transition-property: height, color, background; /* Safari */
     -webkit-transition-duration: .5s; /* Safari */
+    transition-property: height,z-index, color, background;
+    transition-duration: .5s;
     color: white;
     background: black;
 }
 
 .art > div > a:hover {
     color: black;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid var(--highlight-color);
+}
+
+.currentPage {
+    font-weight: 600;
 }
