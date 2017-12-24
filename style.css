@@ -4,6 +4,11 @@ body {
     font-family: 'Scada', sans-serif;
 }
 
+body a {
+    text-decoration: none;
+    color: black;
+}
+
 .wrapper {
     display: grid;
     grid-template-columns: 1fr 12fr;
