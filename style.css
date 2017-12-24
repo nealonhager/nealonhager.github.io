@@ -40,6 +40,11 @@ body {
     padding: 1em;
 }
 
+.content a{
+    text-decoration: none;
+    color: black;
+}
+
 .art {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
@@ -50,7 +55,7 @@ body {
 
 .art > div > a > img {
     width: 100%;
-    height: 95%;
+    height: 98%;
     object-fit: cover;
     -webkit-transition: height .2s;
     transition: height .2s;
@@ -85,7 +90,7 @@ body {
 
 .digital > div > a > img {
     width: 100%;
-    height: 95%;
+    height: 98%;
     object-fit: cover;
     -webkit-transition: height .2s;
     transition: height .2s;
@@ -109,7 +114,7 @@ body {
 }
 
 .physical > div > a > img {
-    height: 95%;
+    height: 98%;
     width: 100%;
     object-fit: cover;
     -webkit-transition: height .2s;
@@ -118,4 +123,30 @@ body {
 
 .physical > div > a > img:hover {
     height: 100%;
+}
+
+.current-page {
+    font-weight: 600;
+}
+
+.content > form > input {
+    border: none;
+    border-left: 2px solid black;
+    background-color: #f7f7f7;
+}
+
+.content > form > textarea {
+    border: none;
+    border-left: 2px solid black;
+    background-color: #f7f7f7;
+}
+
+#send-button {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    padding: 5px 15px 5px 15px;
+    border: none;
+    font-weight: 500;
+    font-size: 110%;
 }
