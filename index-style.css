@@ -83,7 +83,7 @@ body {
     }
     
     .content {
-        padding: 30px 0px 0px 0px;
+        padding: 50px 0px 0px 0px;
         width: 95%;
         margin: auto;
         align-content: center;
@@ -95,6 +95,31 @@ body {
         text-align: center;
         line-height: 10px;
         font-size: 20px;
+    }
+    
+    .info-text {
+        background: white;
+        font-family: 'Work Sans', sans-serif;
+        padding: 10px 20px 10px 20px;
+        border-radius: 10px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 50px 1fr;
+    }
+    
+    .sub-tagline {
+        font-weight: bold;
+        padding-bottom: 60px;
+        border-bottom: 1px solid black;
+    }
+    
+    .footer {
+        background: white;
+        font-family: 'Work Sans', sans-serif;
+    }
+    
+    .footer > div {
+        text-align: center;
     }
 }
 
