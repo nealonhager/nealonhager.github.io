@@ -125,6 +125,11 @@ body {
     .footer > div {
         text-align: center;
     }
+    
+    .contact-sheet > p > a {
+        color: black;
+        text-decoration: none;
+    }
 }
 
 /* Desktop */
