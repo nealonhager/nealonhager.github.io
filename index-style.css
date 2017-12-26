@@ -108,6 +108,10 @@ body {
         grid-gap: 1em;
     }
     
+    .info-text.philosophy > div.sub-tagline {
+        font-weight: bold;
+    }
+    
     .info-text > div {
         padding-top: 0px;
     }
