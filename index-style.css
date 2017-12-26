@@ -105,10 +105,16 @@ body {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 50px 1fr;
+        grid-gap: 1em;
+    }
+    
+    .info-text > div {
+        padding-top: 0px;
     }
     
     .sub-tagline {
         font-weight: bold;
+        border-bottom: 1px solid black;
     }
     
     .footer {
