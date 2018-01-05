@@ -53,7 +53,7 @@ body a {
 .art {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-    grid-auto-rows: 200px;
+    grid-auto-rows: 250px;
     grid-gap: 1em;
     padding: 0px 0px 10px 0px;
 }
@@ -84,7 +84,6 @@ body a {
     grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     grid-auto-rows: 250px;
     grid-gap: 1em;
-    padding: 0px 0px 10px 0px;
     padding: 0px 0px 10px 0px;
 }
 
@@ -154,4 +153,88 @@ body a {
     border: none;
     font-weight: 500;
     font-size: 110%;
+}
+
+.default-cursor {
+    cursor: default;
+}
+
+.content.games {
+    padding-top: 20px;
+}
+
+.games {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    grid-auto-rows: 250px;
+    grid-gap: 1em;
+    padding: 0px 0px 10px 0px;    
+}
+
+.games > div > a > img {
+    width: 100%;
+    height: 98%;
+    object-fit: cover;
+    -webkit-transition: height .2s;
+    transition: height .2s;
+}
+
+.games > div > a > img:hover {
+    height: 100%;
+}
+
+.games > div {
+    width: 100%;
+    height: 100%;
+}
+
+.websites {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    grid-auto-rows: 250px;
+    grid-gap: 1em;
+    padding: 0px 0px 10px 0px;    
+}
+
+.websites > div > a > img {
+    width: 100%;
+    height: 98%;
+    object-fit: cover;
+    -webkit-transition: height .2s;
+    transition: height .2s;
+}
+
+.websites > div > a > img:hover {
+    height: 100%;
+}
+
+.websites > div {
+    width: 100%;
+    height: 100%;
+}
+
+.landing {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,350px));
+    grid-auto-rows: 250px;
+    grid-gap: 1em;
+    padding: 0px 0px 10px 0px;
+    padding: 0px 0px 10px 0px;
+}
+
+.landing > div {
+    width: 100%;
+    height: 100%;
+}
+
+.landing > div > a > img {
+    width: 100%;
+    height: 98%;
+    object-fit: cover;
+    -webkit-transition: height .2s;
+    transition: height .2s;
+}
+
+.landing > div > a > img:hover {
+    height: 100%;
 }
