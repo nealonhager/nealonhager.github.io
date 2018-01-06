@@ -2,6 +2,7 @@ body {
     margin: 0px;
     padding: 0px;
     background: #161616;
+    font-family: 'Cabin', sans-serif;
 }
 
 .header {
@@ -10,7 +11,6 @@ body {
     box-shadow: 0px 0px 15px 0px black;
     color: #e8e8e8;
     font-size: 250%;
-    font-family: 'Cabin', sans-serif;
     cursor: default;
 }
 
@@ -35,54 +35,44 @@ body {
 }
 
 .content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-gap: 1em;
     margin: 1em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-auto-rows: 350px;
+    grid-gap: 1em;
 }
 
-/* MOBILE */
-@media only screen and (max-width: 800px) {
-    .left {
-        grid-column: 1;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        grid-gap: 1em;
-    }
-    
-    .left > div {
-        width: 100%;
-        height: 100%;
-    }
-    
-    .left > div > img {
-        object-fit: cover;
-        width: 100%;
-        height: auto;
-    }
-    
-    .right {
-        grid-column: 2;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-    }
-    
-    .right > div {
-        width: 100%;
-        height: 100%;
-    }
-    
-    .right > div > img {
-        object-fit: cover;
-        width: 100%;
-        height: auto;
-    }
+.content > div {
+    width: 100%;
+    height: 100%;
 }
 
-/* DESKTOP */
-@media only screen and (min-width: 800px) {
-    
+.content > div > a > img {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    -webkit-transition: filter 0.2s;
+    transition: filter 0.2s;
+}
+
+.content > div > a > img:hover {
+    filter: blur(5px) brightness(50%);
+}
+
+.content > div > a > p {
+    display: none;
+    cursor: default;
+    text-decoration: none;
+    position: relative;
+    top: -50px;
+    text-align: center;
+    color: white;
+    z-index: 1;
+    -webkit-transition: display 0.2s;
+    transition: display 0.2s;
+}
+
+.content > div > a:hover > p {
+    display: block;
 }
