@@ -38,3 +38,8 @@ p {
   background-color: #2581d1;
   color: white;
 }
+
+body, html {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
