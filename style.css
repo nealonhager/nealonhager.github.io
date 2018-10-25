@@ -1,16 +1,59 @@
-@media screen and (max-width: 768px) {
-  background-color: blue;
-}
-
 body {
-  background: red url("assets/zevin-fitzgerald-479718-unsplash.jpg") no-repeat fixed center;
-  background-size: 100%;
-  margin: 0em;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: black;
+  margin: 0;
+  padding: 0;
+  background: white;
 }
 
-.sidebar {
-  position: fixed;
-  background-color: white;
-  height: 100%;
-  width: 10%;
+.info {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 2em;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+p {
+  margin-left: 1em;
+}
+
+#showcase .bg-image {
+  position: absolute;
+  background: red url('assets/spotlight.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 450px;
+  z-index: -1;
+  opacity: 0.4;
+}
+
+#showcase p {
+  padding: 0 1em;
+}
+
+#profile {
+  background: url("assets/1MB-profile.png") 50% 50% no-repeat;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  border-radius: 50%;
+  border-width: 0.5em;
+  border-color: #333;
+  border-style: solid;
+  margin: 1em auto;
+}
+
+h1, h2 {
+  margin-left: 0.5em;
 }
