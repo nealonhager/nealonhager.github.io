@@ -1,63 +1,108 @@
 body {
-  margin: 0px;
-  padding: 0px;
-  width: 100%;
-  height: 100%;
+  margin: 0em;
+  padding: 0em;
   display: grid;
-  grid-template-columns: 1fr 7fr;
-  grid-template-rows: auto;
   font-family: 'Niramit', sans-serif;
-}
-
-a {
-  text-decoration: none;
-    color: #eeeaf2;
-}
-
-a:visited {
-  color: #eeeaf2;
-}
-
-.sidebar {
-  background-color: #2f2738;
-  display: grid;
-  grid-template-rows: auto 1fr;
-  padding-top: 2em;
-  justify-items: left;
-  color: #eeeaf2;
-  padding-left: 1em;
-}
-
-.content {
-  margin: 2em;
-  color: #2f2738;
-}
-
-#profile_picture {
-  width: 50%;
-  border-radius: 100%;
+  text-align: center;
 }
 
 .profile {
   display: grid;
   justify-items: center;
+  background: #2f2738;
 }
 
-h1, p, h2 {
-  margin: 0px;
-  padding: 0px;
+.profile h1 {
+  color: white;
 }
 
-#infobar {
-  color: #d2c9db;
+.info {
+  text-align: center;
 }
 
-.subsection {
-  margin-left: 1em;
+#profile_picture {
+  margin-top: 1em;
+  width: 50%;
+  border-radius: 50%;
 }
 
 ul {
   list-style: none;
   margin: 0px;
   padding: 0px;
+}
+
+a {
+  text-decoration: none;
+    color: #2f2738;
+}
+
+a:visited {
+  color: #2f2738;
+}
+
+@media (min-width:40em) {
+  body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    grid-template-rows: auto;
+    font-family: 'Niramit', sans-serif;
+  }
+
+  a {
+    text-decoration: none;
+      color: #eeeaf2;
+  }
+
+  a:visited {
+    color: #eeeaf2;
+  }
+
+  .sidebar {
+    background-color: #2f2738;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    padding-top: 2em;
+    justify-items: left;
+    color: #eeeaf2;
+    padding-left: 1em;
+  }
+
+  .content {
+    margin: 2em;
+    color: #2f2738;
+  }
+
+  #profile_picture {
+    width: 50%;
+    border-radius: 100%;
+  }
+
+  .profile {
+    display: grid;
+    justify-items: center;
+  }
+
+  h1, p, h2 {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  #infobar {
+    color: #d2c9db;
+  }
+
+  .subsection {
+    margin-left: 1em;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+  }
 }
