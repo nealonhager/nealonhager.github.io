@@ -1,0 +1,82 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Hammersmith One', sans-serif;
+  font-size: 50px;
+}
+
+body {
+  display: grid;
+  grid-template-areas:
+    'title'
+    'social'
+    'content';
+}
+
+h1 {
+  display: grid;
+  grid-area: 'title';
+  background-color: black;
+  font-size: 120px;
+  text-align: center;
+}
+
+#social {
+  grid-area: 'social';
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+#new-album {
+  margin-top: 1em;
+  grid-area: 'content';
+  display: grid;
+  justify-items: center;
+  width: 100%;
+}
+
+#blurb {
+  padding: 1em;
+  text-align: justify;
+}
+
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  margin: 1em 0 1em 0;
+}
+
+p {
+  font-family: 'Niramit', sans-serif;
+}
+
+#pop {
+  font-family: 'Hammersmith One', sans-serif;
+}
+
+#album-name {
+  font-style: italic;
+}
+
+@media only screen and (min-width: 64em) {
+
+  h1 {
+    letter-spacing: .75em;
+  }
+
+  a:hover {
+    color: red;
+  }
+
+}

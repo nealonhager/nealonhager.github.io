@@ -41,7 +41,7 @@ a:visited {
   color: #2f2738;
 }
 
-@media (min-width:40em) {
+@media only (min-width:40em) {
   body {
     margin: 0px;
     padding: 0px;
