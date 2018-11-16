@@ -1,0 +1,25 @@
+button {
+  background: black;
+  color: white;
+  font-weight: bold;
+  padding: 1em;
+  border: 0px;
+  width: 100px;
+}
+
+div {
+  width: 25px;
+  height: 25px;
+  background: red;
+  position: absolute;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+}
+
+h1 {
+  position: absolute;
+}
