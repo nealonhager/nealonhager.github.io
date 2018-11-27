@@ -77,4 +77,32 @@ ul {
   li, p, a {
     font-size: 30px;
   }
+
+  h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  #head {
+    display: flex;;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  #head > h1,#social-media {
+    margin-top: 3em;
+  }
+
+  #head > h1 {
+    margin-right: .5em;
+  }
+
+  img {
+    width: 300px;
+    height: 300px;
+    margin: 1em;
+  }
 }
