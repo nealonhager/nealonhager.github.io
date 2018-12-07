@@ -74,4 +74,8 @@ button {
     height: 3em;
     font-size: 70px;
   }
+
+  .results {
+    height: 5em;
+  }
 }
