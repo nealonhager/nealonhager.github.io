@@ -1,7 +1,7 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-size: 50px;
+  font-size: 24px;
   font-family: 'Niramit', sans-serif;
 }
 
@@ -73,13 +73,22 @@ ul {
   padding-left: .5em;
 }
 
+strong {
+  font-size: 24px;
+  text-decoration: underline;
+}
+
+#disclaimer {
+  color: #8c8c8c;
+}
+
 @media only screen and (min-width: 64em) {
   li, p, a {
-    font-size: 30px;
+    font-size: 24px;
   }
 
   h1 {
-    font-size: 50px;
+    font-size: 40px;
   }
 
   h2 {
