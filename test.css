@@ -13,12 +13,16 @@ body {
 
 #header {
   display: grid;
-  grid-template-columns: auto auto 1fr repeat(3,auto);
+  grid-template-columns: auto auto 1fr repeat(4,auto);
   background-color: #19180A;
   position: fixed;
   top: 0px;
   width: 100%;
   box-shadow: 0px 0px 2px #19180A;
+}
+
+#header > a > h2 {
+  cursor: pointer;
 }
 
 #content {
@@ -102,6 +106,7 @@ h3:hover {
   background: transparent;
   transition: all .5s;
   padding: .1em;
+  cursor: default;
 }
 
 #projects > p:hover {
@@ -110,4 +115,15 @@ h3:hover {
 
 #star {
   color: #E71D36;
+}
+
+#contact > a > i {
+  color: #C5CFD6;
+  margin: 1em .5em 0em .5em;
+  font-size: 3em;
+  transition: all .5s;
+}
+
+#contact > a > i:hover {
+  color: #a7b6c1;
 }
