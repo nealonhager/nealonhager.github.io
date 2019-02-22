@@ -10,8 +10,6 @@ function submit() {
     printers[i] = printer;
   }
 
-  document.querySelector('#copybtn').style.display = "block";
-
   for (var i = 0; i < printers.length; i++) {
     var output = '';
     output += printers[i].location;
@@ -20,9 +18,7 @@ function submit() {
     output += '#';
     results.value += output;
   }
-}
 
-function copyResults() {
   var text = document.querySelector('.results');
   text.style.display = "block";
   text.select();
