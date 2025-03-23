@@ -9,12 +9,18 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    justify-self: center;
     height: 100vh;
+    padding: 2rem;
 }
 
 h1 {
     font-size: 4rem;
-    margin-bottom: 1rem;
+}
+
+p {
+    color: #666;
+    text-align: center;
 }
 
 ul {
@@ -74,5 +80,9 @@ a span {
 
     ul {
         gap: 1rem;
+    }
+
+    p {
+        margin-top: 1rem;
     }
 }
