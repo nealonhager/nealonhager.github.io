@@ -86,3 +86,15 @@ a span {
         margin-top: 1rem;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #111;
+        color: #fff;
+    }
+
+    a {
+        color: #4d4dff;
+    }
+    
+}
