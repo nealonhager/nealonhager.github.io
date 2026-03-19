@@ -64,7 +64,7 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
         <header
             ref={headerRef}
             className={cx(
-                "relative flex h-18 w-full items-center justify-center md:h-20",
+                "sticky top-0 z-50 flex h-18 w-full items-center justify-center bg-primary md:h-20",
                 isFloating && "h-16 md:h-19 md:pt-3",
                 isFullWidth && !isFloating ? "has-aria-expanded:bg-primary" : "max-md:has-aria-expanded:bg-primary",
                 className,
