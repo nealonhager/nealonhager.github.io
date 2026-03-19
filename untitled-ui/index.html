@@ -12,6 +12,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..700;1,14..32,400..700&display=swap" rel="stylesheet" />
 
         <title>Nealon Hager</title>
+        <script>
+            const redirectPath = sessionStorage.getItem("redirectPath");
+
+            if (redirectPath) {
+                sessionStorage.removeItem("redirectPath");
+                window.history.replaceState(null, "", redirectPath);
+            }
+        </script>
     </head>
 
     <body class="size-full bg-primary antialiased">

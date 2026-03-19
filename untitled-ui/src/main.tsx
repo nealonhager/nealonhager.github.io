@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { HashRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Route, Routes } from "react-router";
 import { HomeScreen } from "@/pages/home-screen";
 import { AboutScreen } from "@/pages/about-screen";
 import { NotFound } from "@/pages/not-found";
@@ -11,7 +11,7 @@ import "@/styles/globals.css";
 createRoot(document.getElementById("root")!).render(
     <StrictMode>
         <ThemeProvider>
-            <HashRouter>
+            <BrowserRouter>
                 <RouteProvider>
                     <Routes>
                         <Route path="/" element={<HomeScreen />} />
@@ -19,7 +19,7 @@ createRoot(document.getElementById("root")!).render(
                         <Route path="*" element={<NotFound />} />
                     </Routes>
                 </RouteProvider>
-            </HashRouter>
+            </BrowserRouter>
         </ThemeProvider>
     </StrictMode>,
 );
