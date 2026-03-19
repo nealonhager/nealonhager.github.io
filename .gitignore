@@ -1,0 +1,6 @@
+untitled-ui/.git/
+untitled-ui/node_modules/
+untitled-ui/dist/
+
+.DS_Store
+Thumbs.db
