@@ -5,6 +5,8 @@
     "private": true,
     "scripts": {
         "dev": "vite",
+        "sync:strava": "node ./scripts/sync-strava.mjs",
+        "strava:exchange-code": "node ./scripts/exchange-strava-code.mjs",
         "build": "tsc -b && vite build",
         "preview": "vite preview"
     },
@@ -13,6 +15,7 @@
         "@tailwindcss/vite": "^4.1.18",
         "@untitledui/file-icons": "^0.0.8",
         "@untitledui/icons": "^0.0.21",
+        "dotenv": "^17.3.1",
         "input-otp": "^1.4.2",
         "motion": "^12.29.0",
         "qr-code-styling": "^1.9.2",
