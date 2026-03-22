@@ -5,7 +5,7 @@ This site can publish the latest Strava activities during the GitHub Pages build
 ## What the automation does
 
 - The root Pages workflow runs on pushes, manual dispatches, and once per day.
-- `npm run sync:strava` refreshes a Strava access token, fetches recent activities, filters out activities marked private, and writes `public/data/strava-activities.json`.
+- `npm run sync:strava` refreshes a Strava access token, fetches recent activities, saves the raw API response to `.cache/strava-activities-api-response.json`, filters out activities marked private, and writes `public/data/strava-activities.json`.
 - The home page reads that generated JSON at runtime.
 
 ## Required GitHub secrets
@@ -54,7 +54,8 @@ $env:STRAVA_REFRESH_TOKEN="your-refresh-token"
 npm run sync:strava
 ```
 
-The generated output is written to `public/data/strava-activities.json`.
+The generated site output is written to `public/data/strava-activities.json`.
+The raw Strava API response is also saved locally to `.cache/strava-activities-api-response.json`, which is gitignored.
 
 ## Privacy note
 
