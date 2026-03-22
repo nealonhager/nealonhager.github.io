@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outputPath = path.resolve(__dirname, "../public/data/strava-activities.json");
+const rawActivitiesOutputPath = path.resolve(__dirname, "../.cache/strava-activities-api-response.json");
 const stravaTokenUrl = "https://www.strava.com/oauth/token";
 const stravaActivitiesUrl = "https://www.strava.com/api/v3/athlete/activities";
 const githubOutputPath = process.env.GITHUB_OUTPUT;
@@ -135,14 +136,35 @@ function createPayload(note) {
 }
 
 /**
+ * Writes JSON to disk with a trailing newline for readability.
+ *
+ * @param {string} filePath
+ * @param {unknown} value
+ * @returns {Promise<void>}
+ */
+async function writeJsonFile(filePath, value) {
+    await mkdir(path.dirname(filePath), { recursive: true });
+    await writeFile(filePath, `${JSON.stringify(value, null, 2)}\n`, "utf8");
+}
+
+/**
  * Persists the generated Strava payload into the public data directory.
  *
  * @param {StravaActivitiesPayload} payload
  * @returns {Promise<void>}
  */
 async function writePayload(payload) {
-    await mkdir(path.dirname(outputPath), { recursive: true });
-    await writeFile(outputPath, `${JSON.stringify(payload, null, 2)}\n`, "utf8");
+    await writeJsonFile(outputPath, payload);
+}
+
+/**
+ * Saves the raw Strava API activity response for local inspection.
+ *
+ * @param {StravaActivityResponse[]} activities
+ * @returns {Promise<void>}
+ */
+async function writeRawActivitiesSnapshot(activities) {
+    await writeJsonFile(rawActivitiesOutputPath, activities);
 }
 
 /**
@@ -245,6 +267,7 @@ async function buildPayload(config) {
     maskGithubValue(token.refresh_token);
 
     const activities = await fetchRecentActivities(token.access_token);
+    await writeRawActivitiesSnapshot(activities);
     const publicActivities = activities.filter(isPublishableActivity).slice(0, 5).map(toPublicActivity);
 
     return {
