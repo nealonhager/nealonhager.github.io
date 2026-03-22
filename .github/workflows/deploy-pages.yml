@@ -5,6 +5,8 @@ on:
         branches:
             - main
     workflow_dispatch:
+    schedule:
+        - cron: "17 6 * * *"
 
 permissions:
     contents: read
@@ -18,6 +20,12 @@ concurrency:
 jobs:
     build:
         runs-on: ubuntu-latest
+        env:
+            GITHUB_REPOSITORY: ${{ github.repository }}
+            STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
+            STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
+            STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
+            GH_REPO_ADMIN_TOKEN: ${{ secrets.GH_REPO_ADMIN_TOKEN }}
 
         steps:
             - name: Check out repository
@@ -37,10 +45,26 @@ jobs:
               working-directory: untitled-ui
               run: npm ci
 
+            - name: Refresh Strava activities
+              id: sync_strava
+              working-directory: untitled-ui
+              run: npm run sync:strava
+
+            - name: Persist rotated Strava refresh token
+              if: steps.sync_strava.outputs.refresh-token-changed == 'true' && env.GH_REPO_ADMIN_TOKEN != ''
+              env:
+                  GH_TOKEN: ${{ env.GH_REPO_ADMIN_TOKEN }}
+              run: gh secret set STRAVA_REFRESH_TOKEN --repo "${{ github.repository }}" --body "${{ steps.sync_strava.outputs.refresh-token }}"
+
+            - name: Fail if token rotation cannot be persisted
+              if: steps.sync_strava.outputs.refresh-token-changed == 'true' && env.GH_REPO_ADMIN_TOKEN == ''
+              run: |
+                  echo "Strava rotated the refresh token, but GH_REPO_ADMIN_TOKEN is not configured."
+                  echo "Add GH_REPO_ADMIN_TOKEN so the workflow can update STRAVA_REFRESH_TOKEN automatically."
+                  exit 1
+
             - name: Build site
               working-directory: untitled-ui
-              env:
-                  GITHUB_REPOSITORY: ${{ github.repository }}
               run: npm run build
 
             - name: Upload Pages artifact

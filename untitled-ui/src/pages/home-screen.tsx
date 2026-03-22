@@ -1,9 +1,11 @@
 import { HeaderLayout } from "@/layouts/header-layout";
+import { StravaActivitiesSection } from "@/components/marketing/strava-activities-section";
 
 export const HomeScreen = () => {
     return (
         <HeaderLayout>
-            <div className="flex flex-col items-center w-full lg:w-1/2 mx-auto gap-6 px-4">
+            <div className="mx-auto flex w-full flex-col items-center gap-6 px-4 lg:w-1/2">
+                <StravaActivitiesSection />
             </div>
         </HeaderLayout>
     );
