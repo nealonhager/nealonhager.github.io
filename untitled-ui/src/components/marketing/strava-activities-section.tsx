@@ -1,7 +1,8 @@
-import { ArrowRight } from "@untitledui/icons";
+import { ArrowRight, Share04 } from "@untitledui/icons";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/base/buttons/button";
 import type { StravaActivitiesPayload, StravaActivity } from "@/types/strava-activity";
+import { Badge } from "../base/badges/badges";
 
 const stravaDataPath = `${import.meta.env.BASE_URL}data/strava-activities.json`;
 
@@ -9,6 +10,19 @@ type StravaActivitiesState =
     | { status: "loading" }
     | { status: "error"; message: string }
     | { status: "ready"; payload: StravaActivitiesPayload };
+
+const getActivityColor = (sportType: string) => {
+    switch (sportType) {
+        case "Run":
+            return "brand";
+        case "Ride":
+            return "pink";
+        case "RockClimbing":
+            return "success";
+        default:
+            return "gray";
+    }
+}
 
 /**
  * Loads and renders the generated Strava activity feed for the home page.
@@ -50,15 +64,10 @@ export function StravaActivitiesSection() {
     }, []);
 
     return (
-        <section className="mt-16 flex w-full flex-col gap-6 rounded-3xl border border-secondary bg-primary p-6 shadow-xs">
-            <div className="flex flex-col gap-3">
-                <span className="text-sm font-semibold text-brand-secondary">Training log</span>
-                <div className="flex flex-col gap-2">
-                    <h1 className="text-display-sm font-semibold text-primary">Latest Strava activities</h1>
-                </div>
-            </div>
+        <div>
+            <h1 className="pt-16 text-center text-display-lg font-semibold text-primary">Training log</h1>
             <StravaActivitiesContent state={state} />
-        </section>
+        </div>
     );
 }
 
@@ -85,11 +94,8 @@ function StravaActivitiesContent({ state }: { state: StravaActivitiesState }) {
 
     return (
         <div className="flex flex-col gap-4">
-            <div className="flex flex-col gap-1">
-                <p className="text-sm text-secondary">Updated {formatGeneratedAt(state.payload.generatedAt)}</p>
-                <p className="text-sm text-tertiary">{state.payload.note}</p>
-            </div>
-            <ul className="flex flex-col gap-4">
+            <span className="text-center text-sm text-secondary pb-16">Updated {formatGeneratedAt(state.payload.generatedAt)}</span>
+            <ul className="flex flex-col gap-8">
                 {state.payload.activities.map((activity) => (
                     <li key={activity.id}>
                         <StravaActivityCard activity={activity} />
@@ -107,25 +113,25 @@ function StravaActivityCard({ activity }: { activity: StravaActivity }) {
     const location = formatLocation(activity);
 
     return (
-        <article className="flex flex-col gap-4 rounded-2xl border border-secondary bg-secondary px-5 py-4">
+        <article className="flex flex-col gap-4 rounded-2xl border border-secondary px-5 py-4">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                <div className="flex flex-col gap-2">
-                    <div className="flex flex-wrap items-center gap-2">
-                        <span className="rounded-full border border-secondary bg-primary px-3 py-1 text-xs font-semibold tracking-wide text-secondary uppercase">
-                            {activity.sportType}
-                        </span>
-                        <span className="text-sm text-tertiary">{formatActivityDate(activity.startDate)}</span>
-                    </div>
+                <div className="flex flex-row gap-2 justify-between w-full">
+                <div className="flex flex-col">
                     <div className="flex flex-col gap-1">
                         <h2 className="text-xl font-semibold text-primary">{activity.name}</h2>
                         {location && <p className="text-sm text-tertiary">{location}</p>}
                     </div>
+                    <div className="flex flex-row gap-4">
+                        <span className="text-sm text-secondary">{activity.sportType}</span>
+                        <span className="text-sm text-tertiary">{formatActivityDate(activity.startDate)}</span>
+                    </div>
                 </div>
-                <Button href={activity.externalUrl} color="link-color" iconTrailing={ArrowRight} target="_blank" rel="noreferrer">
+                <Button href={activity.externalUrl} color="link-gray" iconTrailing={Share04} target="_blank" rel="noreferrer" size="sm">
                     View on Strava
                 </Button>
+                </div>
             </div>
-            <dl className="grid gap-3 text-sm sm:grid-cols-3">
+            <dl className="flex flex-row text-sm justify-between">
                 <ActivityMetric label="Distance" value={formatDistance(activity.distanceMeters)} />
                 <ActivityMetric label="Moving time" value={formatDuration(activity.movingTimeSeconds)} />
                 <ActivityMetric label="Elevation gain" value={formatElevation(activity.totalElevationGainMeters)} />
@@ -139,8 +145,8 @@ function StravaActivityCard({ activity }: { activity: StravaActivity }) {
  */
 function ActivityMetric({ label, value }: { label: string; value: string }) {
     return (
-        <div className="flex flex-col gap-1 rounded-xl border border-secondary bg-primary px-4 py-3">
-            <dt className="text-xs font-medium tracking-wide text-secondary uppercase">{label}</dt>
+        <div className="flex flex-col gap-1">
+            <dt className="text-xs font-medium tracking-wide text-secondary">{label}</dt>
             <dd className="text-md font-semibold text-primary">{value}</dd>
         </div>
     );
