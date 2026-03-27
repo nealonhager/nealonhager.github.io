@@ -11,19 +11,6 @@ type StravaActivitiesState =
     | { status: "error"; message: string }
     | { status: "ready"; payload: StravaActivitiesPayload };
 
-const getActivityColor = (sportType: string) => {
-    switch (sportType) {
-        case "Run":
-            return "brand";
-        case "Ride":
-            return "pink";
-        case "RockClimbing":
-            return "success";
-        default:
-            return "gray";
-    }
-}
-
 /**
  * Loads and renders the generated Strava activity feed for the home page.
  */
