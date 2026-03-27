@@ -1,8 +1,7 @@
-import { ArrowRight, Share04 } from "@untitledui/icons";
+import { Share04 } from "@untitledui/icons";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/base/buttons/button";
 import type { StravaActivitiesPayload, StravaActivity } from "@/types/strava-activity";
-import { Badge } from "../base/badges/badges";
 
 const stravaDataPath = `${import.meta.env.BASE_URL}data/strava-activities.json`;
 
