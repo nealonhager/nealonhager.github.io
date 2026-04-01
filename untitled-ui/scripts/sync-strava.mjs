@@ -22,6 +22,9 @@ const githubOutputPath = process.env.GITHUB_OUTPUT;
  *   elapsed_time: number;
  *   total_elevation_gain: number;
  *   average_speed: number | null;
+ *   kudos_count?: number;
+ *   comment_count?: number;
+ *   achievement_count?: number;
  *   private: boolean;
  *   timezone?: string;
  *   location_city?: string | null;
@@ -59,6 +62,9 @@ const githubOutputPath = process.env.GITHUB_OUTPUT;
  *   elapsedTimeSeconds: number;
  *   totalElevationGainMeters: number;
  *   averageSpeedMetersPerSecond: number | null;
+ *   kudosCount: number;
+ *   commentCount: number;
+ *   achievementCount: number;
  *   timezone: string | null;
  *   locationCity: string | null;
  *   locationState: string | null;
@@ -248,6 +254,9 @@ function toPublicActivity(activity) {
         elapsedTimeSeconds: activity.elapsed_time,
         totalElevationGainMeters: activity.total_elevation_gain,
         averageSpeedMetersPerSecond: activity.average_speed,
+        kudosCount: activity.kudos_count ?? 0,
+        commentCount: activity.comment_count ?? 0,
+        achievementCount: activity.achievement_count ?? 0,
         timezone: activity.timezone ?? null,
         locationCity: activity.location_city ?? null,
         locationState: activity.location_state ?? null,

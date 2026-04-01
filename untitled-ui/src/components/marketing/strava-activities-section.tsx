@@ -1,4 +1,5 @@
-import { Share04 } from "@untitledui/icons";
+import { Heart, MessageCircle02, Share04, Trophy02 } from "@untitledui/icons";
+import type { ComponentType, SVGProps } from "react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/base/buttons/button";
 import type { StravaActivitiesPayload, StravaActivity } from "@/types/strava-activity";
@@ -122,6 +123,11 @@ function StravaActivityCard({ activity }: { activity: StravaActivity }) {
                 <ActivityMetric label="Moving time" value={formatDuration(activity.movingTimeSeconds)} />
                 <ActivityMetric label="Elevation gain" value={formatElevation(activity.totalElevationGainMeters)} />
             </dl>
+            <div className="flex flex-wrap gap-3 border-t border-secondary pt-4">
+                <EngagementMetric Icon={Heart} value={activity.kudosCount} srLabel="likes" />
+                <EngagementMetric Icon={MessageCircle02} value={activity.commentCount} srLabel="comments" />
+                <EngagementMetric Icon={Trophy02} value={activity.achievementCount} srLabel="achievements" />
+            </div>
         </article>
     );
 }
@@ -135,6 +141,24 @@ function ActivityMetric({ label, value }: { label: string; value: string }) {
             <dt className="text-xs font-medium tracking-wide text-secondary">{label}</dt>
             <dd className="text-md font-semibold text-primary">{value}</dd>
         </div>
+    );
+}
+
+function EngagementMetric({
+    Icon,
+    value,
+    srLabel,
+}: {
+    Icon: ComponentType<SVGProps<SVGSVGElement>>;
+    value: number;
+    srLabel: string;
+}) {
+    return (
+        <span className="inline-flex items-center gap-1.5 text-sm text-tertiary">
+            <Icon aria-hidden="true" className="size-4 text-secondary" />
+            <span className="font-medium text-secondary">{value}</span>
+            <span className="sr-only">{srLabel}</span>
+        </span>
     );
 }
 

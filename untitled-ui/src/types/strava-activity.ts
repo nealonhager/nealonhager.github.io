@@ -11,6 +11,9 @@ export interface StravaActivity {
     elapsedTimeSeconds: number;
     totalElevationGainMeters: number;
     averageSpeedMetersPerSecond: number | null;
+    kudosCount: number;
+    commentCount: number;
+    achievementCount: number;
     timezone: string | null;
     locationCity: string | null;
     locationState: string | null;
