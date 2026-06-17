@@ -1,0 +1,24 @@
+{
+    "name": "nealonhager.github.io",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "images": "node ./scripts/generate-images.mjs",
+        "dev": "npm run images && vite",
+        "build": "npm run images && tsc -b && vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "react": "^19.2.3",
+        "react-dom": "^19.2.3"
+    },
+    "devDependencies": {
+        "@types/node": "^24.10.9",
+        "@types/react": "^19.2.9",
+        "@types/react-dom": "^19.2.3",
+        "@vitejs/plugin-react-swc": "^4.2.2",
+        "sharp": "^0.34.5",
+        "typescript": "^5.9.3",
+        "vite": "^7.3.1"
+    }
+}

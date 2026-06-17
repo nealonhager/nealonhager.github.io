@@ -1,6 +1,7 @@
-untitled-ui/.git/
-untitled-ui/node_modules/
-untitled-ui/dist/
+node_modules/
+dist/
+
+public/images/me-*w.jpeg
 
 .DS_Store
 Thumbs.db

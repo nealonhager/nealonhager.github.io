@@ -5,8 +5,6 @@ on:
         branches:
             - main
     workflow_dispatch:
-    schedule:
-        - cron: "17 6 * * *"
 
 permissions:
     contents: read
@@ -22,10 +20,6 @@ jobs:
         runs-on: ubuntu-latest
         env:
             GITHUB_REPOSITORY: ${{ github.repository }}
-            STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
-            STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
-            STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
-            GH_REPO_ADMIN_TOKEN: ${{ secrets.GH_REPO_ADMIN_TOKEN }}
 
         steps:
             - name: Check out repository
@@ -36,41 +30,20 @@ jobs:
               with:
                   node-version: 22
                   cache: npm
-                  cache-dependency-path: untitled-ui/package-lock.json
 
             - name: Configure Pages
               uses: actions/configure-pages@v5
 
             - name: Install dependencies
-              working-directory: untitled-ui
               run: npm ci
 
-            - name: Refresh Strava activities
-              id: sync_strava
-              working-directory: untitled-ui
-              run: npm run sync:strava
-
-            - name: Persist rotated Strava refresh token
-              if: steps.sync_strava.outputs.refresh-token-changed == 'true' && env.GH_REPO_ADMIN_TOKEN != ''
-              env:
-                  GH_TOKEN: ${{ env.GH_REPO_ADMIN_TOKEN }}
-              run: gh secret set STRAVA_REFRESH_TOKEN --repo "${{ github.repository }}" --body "${{ steps.sync_strava.outputs.refresh-token }}"
-
-            - name: Fail if token rotation cannot be persisted
-              if: steps.sync_strava.outputs.refresh-token-changed == 'true' && env.GH_REPO_ADMIN_TOKEN == ''
-              run: |
-                  echo "Strava rotated the refresh token, but GH_REPO_ADMIN_TOKEN is not configured."
-                  echo "Add GH_REPO_ADMIN_TOKEN so the workflow can update STRAVA_REFRESH_TOKEN automatically."
-                  exit 1
-
             - name: Build site
-              working-directory: untitled-ui
               run: npm run build
 
             - name: Upload Pages artifact
               uses: actions/upload-pages-artifact@v3
               with:
-                  path: untitled-ui/dist
+                  path: dist
 
     deploy:
         environment:
