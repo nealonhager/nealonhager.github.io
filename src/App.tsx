@@ -85,16 +85,10 @@ export function App() {
                     <div className="section-content">
                         <div className="role">
                             <div className="role-title">
-                                Software Engineer, <ExternalLink href="https://www.ambrygen.com"><span className="accent">Ambry Genetics</span></ExternalLink>
+                                Staff Software Engineer, <span className="accent">Revalia Bio</span>
                             </div>
                             <div className="role-detail">
-                                Building software • Bend, Oregon
-                            </div>
-                        </div>
-                        <div className="role">
-                            <div className="role-title">Side Projects</div>
-                            <div className="role-detail">
-                                Voice-driven assistants • LLM interaction modalities
+                                Jun 2026 – Present
                             </div>
                         </div>
                     </div>
@@ -105,47 +99,38 @@ export function App() {
                     <div className="section-content">
                         <div className="role">
                             <div className="role-title">
-                                <ExternalLink href="https://www.boisestate.edu">Boise State University</ExternalLink>
+                                Software Engineer II, Ambry Genetics
                             </div>
                             <div className="role-detail">
-                                B.S. Computer Science
+                                Oct 2023 – Jun 2026 · Tech lead on report generation · Full stack · Python lab automation
+                            </div>
+                        </div>
+                        <div className="role">
+                            <div className="role-title">
+                                Software Engineer I, Ambry Genetics
+                            </div>
+                            <div className="role-detail">
+                                Feb 2022 – Sep 2023 · Python lab automation · React + Flask
+                            </div>
+                        </div>
+                        <div className="role">
+                            <div className="role-title">
+                                Software Engineer, Global Strategies International
+                            </div>
+                            <div className="role-detail">
+                                Dec 2020 – Feb 2022 · Manager of Analytics · Full stack serverless Python
+                            </div>
+                        </div>
+                        <div className="role">
+                            <div className="role-title">
+                                Freelance Senior Associate - Analytics, Global Strategies International
+                            </div>
+                            <div className="role-detail">
+                                Jun 2020 – Dec 2020
                             </div>
                         </div>
                     </div>
                 </section>
-
-                <section className="section">
-                    <div className="section-label">INTERESTS</div>
-                    <div className="section-content">
-                        <div className="role">
-                            <div className="role-title">Tech</div>
-                            <div className="role-detail">
-                                Python • React • Machine Learning • Automation • AI Tools
-                            </div>
-                        </div>
-                        <div className="role">
-                            <div className="role-title">Outside</div>
-                            <div className="role-detail">
-                                Rock climbing • Biking • Running • Movies &amp; TV
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <figure className="photo">
-                    <picture>
-                        <source media="(max-width: 480px)" srcSet="/images/me-400w.jpeg" />
-                        <source media="(max-width: 768px)" srcSet="/images/me-576w.jpeg" />
-                        <source media="(max-width: 1024px)" srcSet="/images/me-800w.jpeg" />
-                        <img
-                            src="/images/me-1152w.jpeg"
-                            width={1152}
-                            height={864}
-                            alt="Rock climbing at Smith Rock"
-                        />
-                    </picture>
-                    <figcaption>Smith Rock, Oregon</figcaption>
-                </figure>
             </div>
         </main>
     );
