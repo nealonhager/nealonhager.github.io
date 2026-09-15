@@ -20,4 +20,18 @@ await Promise.all(
     }),
 );
 
-console.log(`Generated ${widths.length} responsive images from ${source}`);
+const metadata = await sharp(source).metadata();
+const size = Math.min(metadata.width ?? 800, metadata.height ?? 800);
+const avatarOutput = path.join(outputDir, "avatar.jpeg");
+
+await sharp(source)
+    .rotate()
+    .resize(size, size, {
+        fit: "cover",
+        position: "top",
+    })
+    .resize(200, 200)
+    .jpeg({ quality: 90, mozjpeg: true })
+    .toFile(avatarOutput);
+
+console.log(`Generated ${widths.length} responsive images + avatar from ${source}`);
