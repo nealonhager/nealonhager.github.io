@@ -1,3 +1,8 @@
+# Deploys the Vite-built site to GitHub Pages via artifact upload.
+#
+# REQUIRED GITHUB SETTING: Repository Settings → Pages → Build and deployment
+# must be set to Source: "GitHub Actions" (not "Deploy from a branch").
+# If set to branch deploy, GitHub ignores the artifact and serves raw source.
 name: Deploy GitHub Pages
 
 on:
