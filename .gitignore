@@ -2,6 +2,7 @@ node_modules/
 dist/
 
 public/images/me-*w.jpeg
+public/images/avatar.jpeg
 public/favicon-16x16.png
 public/favicon-32x32.png
 public/apple-touch-icon.png
